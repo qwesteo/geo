@@ -11,7 +11,7 @@ use stdClass;
 /**
  * A GeoJSON Feature. This class is immutable.
  */
-final class Feature
+class Feature
 {
     /**
      * The contained geometry, or null if this feature is not associated with a geometry.
@@ -53,6 +53,12 @@ final class Feature
         return Cloner::clone($this->properties);
     }
 
+
+    public function getFastProperties(): ?stdClass
+    {
+        return $this->properties;
+    }
+    
     /**
      * Returns a copy of this Feature with the given properties.
      *
